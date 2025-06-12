@@ -1,11 +1,14 @@
-CREATE TABLE IF NOT EXISTS student (
-    nfc_id VARCHAR(20) PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    total_fee DECIMAL(10,2) NOT NULL,
-    fee_paid DECIMAL(10,2) NOT NULL,
-    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+CREATE TABLE IF NOT EXISTS students (
+    nfc_id VARCHAR(50) PRIMARY KEY,
+    name VARCHAR(100),
+    tuition_total DECIMAL(10, 2) DEFAULT 0,
+    tuition_paid DECIMAL(10, 2) DEFAULT 0,
+    hostel_total DECIMAL(10, 2) DEFAULT 0,
+    hostel_paid DECIMAL(10, 2) DEFAULT 0,
+    transport_total DECIMAL(10, 2) DEFAULT 0,
+    transport_paid DECIMAL(10, 2) DEFAULT 0,
+    enrollment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
 CREATE TABLE IF NOT EXISTS admins (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
